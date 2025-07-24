@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Opslify | Transforming Operations, Amplifying Success">
+  <title>Opslify | Premium Tech Solutions</title>
+  <style>
+    :root {
+      --primary: #00bcd4;
+      --accent: #7c4dff;
+      --secondary: #ff6b35;
+      --bg: #0d1117;
+      --bg-secondary: #161b22;
+      --text: #ffffff;
+      --text-secondary: #8b949e;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --blur: blur(10px);
+      --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      --gradient-primary: linear-gradient(135deg, var(--primary), var(--accent));
+      --gradient-secondary: linear-gradient(135deg, var(--accent), var(--secondary));
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Animated background */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(124, 77, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 188, 212, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: var(--glass-bg);
+      backdrop-filter: var(--blur);
+      border-bottom: 1px solid var(--glass-border);
+      z-index: 999;
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      background: rgba(13, 17, 23, 0.95);
+      box-shadow: var(--shadow);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background: var(--gradient-primary);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .cta-btn {
+      background: var(--gradient-primary);
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 30px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 188, 212, 0.4);
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .mobile-menu span {
+      width: 25px;
+      height: 3px;
+      background: var(--text);
+      margin: 3px 0;
+      transition: 0.3s;
+    }
+
+    /* Sections */
+    section {
+      min-height: 100vh;
+      padding: 6rem 2rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: radial-gradient(ellipse at center, rgba(124, 77, 255, 0.1) 0%, transparent 70%);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin-bottom: 3rem;
+      color: var(--text-secondary);
+      animation: fadeInUp 1s ease 0.2s both;
+    }
+
+    .hero .btn-group {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 3rem;
+      animation: fadeInUp 1s ease 0.4s both;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--accent);
+      padding: 0.7rem 1.5rem;
+      border-radius: 30px;
+      color: var(--accent);
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .scroll-indicator {
+      margin-top: 2rem;
+      font-size: 2rem;
+      color: var(--accent);
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* About Section */
+    .about-container {
+      background: var(--glass-bg);
+      backdrop-filter: var(--blur);
+      border-radius: 20px;
+      padding: 4rem 3rem;
+      max-width: 900px;
+      text-align: center;
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .about-container:hover {
+      transform: translateY(-5px);
+    }
+
+    .about h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      background: var(--gradient-secondary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .about p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Services Section */
+    .services {
+      background: var(--bg-secondary);
+    }
+
+    .services h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .service-card {
+      background: var(--glass-bg);
+      backdrop-filter: var(--blur);
+      border-radius: 15px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border: 1px solid var(--glass-border);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      border-color: var(--accent);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      background: var(--gradient-secondary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .service-card p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Portfolio Section */
+    .portfolio h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      background: var(--gradient-secondary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .portfolio-item {
+      background: var(--glass-bg);
+      backdrop-filter: var(--blur);
+      border-radius: 15px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .portfolio-image {
+      width: 100%;
+      height: 200px;
+      background: var(--gradient-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: white;
+    }
+
+    .portfolio-content {
+      padding: 2rem;
+    }
+
+    .portfolio-item h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .portfolio-item p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: rgba(124, 77, 255, 0.2);
+      color: var(--accent);
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      background: var(--bg-secondary);
+    }
+
+    .testimonials h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .testimonials-container {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .testimonial {
+      background: var(--glass-bg);
+      backdrop-filter: var(--blur);
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      border: 1px solid var(--glass-border);
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-5px);
+    }
+
+    .testimonial-text {
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-bottom: 2rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .author-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--gradient-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    .author-info h4 {
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .author-info p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* Contact Section */
+    .contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      background: var(--gradient-secondary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: var(--glass-bg);
+      backdrop-filter: var(--blur);
+      border-radius: 15px;
+      border: 1px solid var(--glass-border);
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateX(10px);
+      border-color: var(--accent);
+    }
+
+    .contact-icon {
+      font-size: 1.5rem;
+      color: var(--accent);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 1rem;
+      border: 1px solid var(--glass-border);
+      border-radius: 10px;
+      background: var(--glass-bg);
+      color: var(--text);
+      font-family: var(--font-main);
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 10px rgba(124, 77, 255, 0.3);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      background: var(--gradient-secondary);
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(124, 77, 255, 0.4);
+    }
+
+    /* Footer */
+    footer {
+      padding: 3rem 2rem 2rem;
+      background: #0a0c10;
+      text-align: center;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .footer-section a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--glass-border);
+      padding-top: 2rem;
+      color: var(--text-secondary);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--glass-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero .btn-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 4rem 1rem 2rem;
+      }
+
+      .about-container {
+        padding: 2.5rem 1.5rem;
+      }
+    }
+
+    /* Loading Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-animation"></div>
+  
+  <header id="header">
+    <div class="logo" onclick="scrollToSection('home')">Opslify</div>
+    <nav>
+      <a href="#home" onclick="scrollToSection('home')">Home</a>
+      <a href="#about" onclick="scrollToSection('about')">About</a>
+      <a href="#services" onclick="scrollToSection('services')">Services</a>
+      <a href="#portfolio" onclick="scrollToSection('portfolio')">Portfolio</a>
+      <a href="#testimonials" onclick="scrollToSection('testimonials')">Testimonials</a>
+      <a href="#contact" onclick="scrollToSection('contact')">Contact</a>
+    </nav>
+    <button class="cta-btn" onclick="scrollToSection('contact')">Get Started</button>
+    <div class="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>Transforming Operations, Amplifying Success</h1>
+    <p>Opslify empowers businesses through cutting-edge digital transformation, intelligent cloud solutions, and seamless AI integration. We turn bold ideas into powerful realities with premium, future-ready technology.</p>
+    <div class="btn-group">
+      <button class="cta-btn" onclick="scrollToSection('services')">Explore Services</button>
+      <button class="btn-secondary" onclick="scrollToSection('contact')">Contact Us</button>
+    </div>
+    <div class="scroll-indicator" onclick="scrollToSection('about')">&#x25BC;</div>
+  </section>
+
+  <section class="about fade-in" id="about">
+    <div class="about-container">
+      <h2>About Opslify</h2>
+      <p>
+        Opslify is a premium technology solutions company dedicated to helping businesses evolve in the digital era. 
+        Our mission is to streamline operations, accelerate innovation, and deliver exceptional technology services 
+        that drive measurable growth and success.
+      </p>
+      <p>
+        With a team of expert developers, strategists, and innovators, we combine cutting-edge technology with 
+        deep industry knowledge to create solutions that not just meet today's needs, but anticipate tomorrow's challenges.
+      </p>
+      <div class="stats">
+        <div class="stat-item">
+      </div>
+    </div>
+  </section>
+
+ <section class="services fade-in" id="services">
+  <h2>Our Services</h2>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon">🚀</div>
+      <h3>AI Application Development</h3>
+      <p>Build intelligent apps that automate tasks, optimize operations, and drive innovation.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">☁️</div>
+      <h3>AI SaaS Development</h3>
+      <p>Launch scalable, cloud-based AI solutions tailored to your business goals.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🤖</div>
+      <h3>AI Custom CRM</h3>
+      <p>Streamline customer management with AI-powered insights and automation.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">💻</div>
+      <h3>AI Web Application</h3>
+      <p>Create fast, secure, and smart web platforms built with AI at the core.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🔒</div>
+      <h3>Managed IT Services</h3>
+      <p>Ensure uptime and security with 24/7 monitoring and expert IT management.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">📊</div>
+      <h3>Data Analytics</h3>
+      <p>Turn your data into decisions with advanced analytics and reporting.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🎨</div>
+      <h3>UI/UX Design</h3>
+      <p>Deliver seamless user experiences with modern, intuitive interfaces.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🧪</div>
+      <h3>MVP Development</h3>
+      <p>Quickly validate ideas with functional, market-ready prototypes.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🎮</div>
+      <h3>AI Gamification Engine</h3>
+      <p>Boost engagement with game-based elements powered by AI insights.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">⚙️</div>
+      <h3>Automation with AI</h3>
+      <p>Automate workflows and boost efficiency using intelligent automation tools.</p>
+    </div>
+
+  </div>
+</section>
+
+  </section>
+
+  <section class="portfolio fade-in" id="portfolio">
+  <h2>Our Portfolio</h2>
+  <div class="portfolio-grid">
+
+    <div class="portfolio-item">
+      <div class="portfolio-image">🏢</div>
+      <div class="portfolio-content">
+        <h3>MinitPe: Food Taxi and Grocery</h3>
+        <p>All-in-one smart app for everyday essentials. Whether you're craving your favorite meal, need a quick ride, or want groceries delivered to your door — MinitPe makes it easy, fast, and reliable.</p>
+        <div class="portfolio-tags">
+          <span class="tag">On-Demand</span>
+          <span class="tag">Delivery</span>
+          <span class="tag">Mobile App</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-image">🔎</div>
+      <div class="portfolio-content">
+        <h3>Tracks by Truckoom</h3>
+        <p>Tracks by Truckoom offers a comprehensive fleet management solution with advanced features designed to optimize logistics operations. It enables real-time GPS tracking of vehicles, allowing businesses to monitor fleet movement with precision. The app includes geofencing capabilities with instant alerts and detailed activity reports, ensuring enhanced route control and safety.</p>
+        <div class="portfolio-tags">
+          <span class="tag">Fleet Management</span>
+          <span class="tag">Logistics</span>
+          <span class="tag">Real-Time Tracking</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-image">🏋🏻‍♂️</div>
+      <div class="portfolio-content">
+        <h3>The Fit Foodie Fitness</h3>
+        <p>A lifestyle brand that blends clean eating with active living. From nutritious recipes to workout inspiration, The Fit Foodie Fitness helps you stay healthy, energized, and motivated every day.</p>
+        <div class="portfolio-tags">
+          <span class="tag">Health & Wellness</span>
+          <span class="tag">Nutrition</span>
+          <span class="tag">Lifestyle</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <section class="testimonials fade-in" id="testimonials">
+    <h2>What Our Clients Say</h2>
+<div class="testimonials-container">
+
+  <div class="testimonial">
+    <p class="testimonial-text">
+      "Opslify helped us modernize our business operations. Their cloud solutions made our systems faster, more secure, and easier to manage."
+    </p>
+    <div class="testimonial-author">
+      <div class="author-avatar">RA</div>
+      <div class="author-info">
+        <h4>Ravi Agarwal</h4>
+        <p>IT Head, Bharat Enterprises</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="testimonial">
+    <p class="testimonial-text">
+      "Their AI tools boosted our customer support quality. We now handle more queries in less time, and our customers are happier than ever."
+    </p>
+    <div class="testimonial-author">
+      <div class="author-avatar">PN</div>
+      <div class="author-info">
+        <h4>Priya Nair</h4>
+        <p>Operations Manager, QuickKart</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="testimonial">
+    <p class="testimonial-text">
+      "We launched our product faster than expected thanks to the Opslify team. Their support and technical skills are truly impressive."
+    </p>
+    <div class="testimonial-author">
+      <div class="author-avatar">AV</div>
+      <div class="author-info">
+        <h4>Ankit Verma</h4>
+        <p>Co-Founder, DigiCraft</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  </section>
+
+  <section class="contact fade-in" id="contact">
+    <h2>Get In Touch</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <h4>Email</h4>
+            <p>connect@opslify.xyz</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <h4>Phone</h4>
+            <p>+91 7019848758</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>Address</h4>
+            <p>Outer Ring Rd, Old Madiwala, Kuvempu Nagar, BTM 2nd Stage, BTM Layout, Bengaluru, Karnataka 560068
+                </div>
+        </div>
+      </div>
+      <form class="contact-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Opslify</h3>
+        <p>Transforming operations and accelerating success with innovative tech solutions. We empower businesses for tomorrow.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>Email: info@opslify.xyz</p>
+        <p>Phone: +91 7019848758</p>
+        <p>Address: Outer Ring Rd, Old Madiwala, Kuvempu Nagar, BTM 2nd Stage, BTM Layout, Bengaluru, Karnataka 560068 </p>
+      </div>
+    </div>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/company/opslify-software-solutions/?viewAsMember=true"><span>ℹ️</span></a>
+      <a href="https://www.facebook.com/opslifysoftwaresolutions/"><span>ⓕ</span></a>
+      <a href="https://x.com/opslifysoftware"><span>𝕏</span></a>
+      <a href="https://www.instagram.com/opslifysoftware_official/"><span>📸</span></a>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Opslify. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Scroll to section with smooth behavior
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Header shadow on scroll
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      // Trigger fade-in animations
+      document.querySelectorAll('.fade-in').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.8) {
+          el.classList.add('visible');
+        }
+      });
+    });
+
+    // Trigger on load in case already in view
+    window.dispatchEvent(new Event('scroll'));
+  </script>
+</body>
+</html>
